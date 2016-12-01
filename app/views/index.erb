@@ -1,31 +1,54 @@
+<h1>Here is what is currently OPEN</h1>
+<p>It is currently <%= @currentfree.day %> <%= @currentfree.week %> <%= @currentfree.period %></p>
+<ul>
+ <% @currentfree.rooms.each do |room| %>
+ <li>Room: <%= room %></li>
+ <% end %>
+ </ul>
 <h1> FIND A ROOM!</h1>
-
-<form action="/viewroom" method="POST">
-<p1> What Day of the Week</p1>
-<select name="day">
-  <option value="Monday A">Monday A</option>
-  <option value="Tuesday A">Tuesday A</option>
-  <option value="Wednesday A">Wednesday A</option>
-  <option value="Thursday A">Thursday A</option>
-  <option value="Friday A">Friday A</option>
-  <option value="Monday B">Monday B</option>
-  <option value="Tuesday B">Tuesday B</option>
-  <option value="Wednesday B">Wednesday B</option>
-  <option value="Thursday B">Thursday B</option>
-  <option value="Friday B">Friday B</option>
-</select>
-<p1> What Period</p1>
-
-<select name="period">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-</select>
-
-<input type="submit">
-</form>
+<div class="row">
+  <form action="/viewroom" method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <select name="week">
+          <option value="A">A</option>
+          <option value="B">B</option>
+      </select>
+      <label for="week">Select a Week</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select name="day">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+        </select>
+        <label for="week">Select a Day</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select name="period">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4A">4</option>
+          <option value="4B">4</option>
+          <option value="4A">4</option>
+          <option value="4B">4</option>
+          <option value="5A">5</option>
+          <option value="5B">5</option>
+          <option value="6A">6</option>
+          <option value="6B">5</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <label for="week">Select a Period</label>
+      </div>
+    </div>
+    <input type="submit">
+  </form>
+</div>

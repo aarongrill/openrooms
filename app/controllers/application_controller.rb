@@ -9,21 +9,18 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    current_schedule = CurrentSchedule.new
+    @currentfree = RoomFinder.new(current_schedule.week, current_schedule.day, current_schedule.period)
     erb :index
   end
 
   get '/viewroom' do
     erb :viewroom
   end
-  
-  get '/roomsnow' do
-    current_schedule = CurrentSchedule.new
-    @free = RoomFinder.new(current_schedule.day, current_schedule.period, current_schedule.week)
-    erb :viewroom
-  end
+
   post '/viewroom' do
     current_schedule = CurrentSchedule.new
-    @free = RoomFinder.new(current_schedule.day, current_schedule.period, current_schedule.week)
+    @free = RoomFinder.new(params[:week],params[:day], params[:period])
     erb :viewroom
   end
 
